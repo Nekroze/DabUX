@@ -1,0 +1,32 @@
+version: '3.2'
+
+services:
+
+  pickles:
+    build: .
+    working_dir: /project/docs
+    volumes:
+        - .:/project
+    user: "${UID:-1000}"
+    command:
+        - --feature-directory=/project/features
+        - --documentation-format=html
+        - --system-under-test-name=Dab
+
+  tests:
+    image: 'nekroze/containaruba:alpine'
+    environment:
+      DAB_AUTOUPDATE: 'false'
+      DAB_WRAPPER_PATH:
+      DAB_REPO_PATH: /tmp/dabux/dab
+      DAB_CONF_PATH: /tmp/dabux/.config/dab
+      HOME: /tmp/dabux
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - '/etc/group:/etc/group:ro'
+      - '/tmp/dabux/:/root'
+      - '/tmp/dabux/:/tmp/dabux'
+      - './features:/usr/src/app/features'
+      - "$DAB_WRAPPER_PATH:/usr/bin/dab"
+    tty: true
+    stdin_open: true

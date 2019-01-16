@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"[]>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Subcommand: dab config</title>
+    <link rel="stylesheet" href="css/master.css" type="text/css" />
+    <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/scripts.js" type="text/javascript"></script>
+    <script type="text/javascript">
+$(document).ready(function() {
+  initializeToc();
+});
+</script>
+    <!-- We are using Font Awesome - http://fortawesome.github.com/Font-Awesome - licensed under CC BY 3.0 -->
+  </head>
+  <body>
+    <div id="container">
+      <div id="top" />
+      <div id="toc">
+        <p class="tocCollapser" title="Collapse Table of Content">«</p>
+        <ul class="features">
+          <li class="file" id="root">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="file">
+            <a href="README.html">Cucumber Aruba Gherkin</a>
+          </li>
+          <li class="file">
+            <a href="misc.html">Docker entrypoint wrapper script works</a>
+          </li>
+          <li class="file">
+            <a href="apps.html">Subcommand: dab apps</a>
+          </li>
+          <li class="file">
+            <span class="current">Subcommand: dab config</span>
+          </li>
+          <li class="file">
+            <a href="group.html">Subcommand: dab group</a>
+          </li>
+          <li class="file">
+            <a href="network.html">Subcommand: dab network</a>
+          </li>
+          <li class="file">
+            <a href="repo.html">Subcommand: dab repo</a>
+          </li>
+          <li class="file">
+            <a href="shell.html">Subcommand: dab shell</a>
+          </li>
+        </ul>
+      </div>
+      <div id="feature">
+        <h1>Subcommand: dab config</h1>
+        <div class="description">
+          <p>The config subcommand manages the dab configuration key value store. Config
+keys are any word or sequence of words (for namespacing) delimited by a
+forward slash, eg. <code>foo/bar</code> would store the url for the dab repository.</p>
+        </div>
+        <ul id="scenarios">
+          <li class="scenario">
+            <div class="scenario-heading" id="can-set-and-retrieve-config-values">
+              <h2>Can set and retrieve config values</h2>
+              <div class="description">
+                <p>Config values can be altered and retrieved with set and get respectively.</p>
+              </div>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">Given </span>I successfully run `dab config set &lt;KEY&gt; &lt;VALUE&gt;`</li>
+                <li class="step">
+                  <span class="keyword">And </span>it should pass with:<div class="pre"><pre><code class="no-highlight">setting config key &lt;KEY&gt; to &lt;VALUE&gt;</code></pre></div></li>
+                <li class="step">
+                  <span class="keyword">Then </span>I run `dab config get &lt;KEY&gt;`</li>
+                <li class="step">
+                  <span class="keyword">And </span>it should pass with:<div class="pre"><pre><code class="no-highlight">&lt;VALUE&gt;</code></pre></div></li>
+                <li class="step">
+                  <span class="keyword">And </span>the file "~/.config/dab/&lt;KEY&gt;" should contain exactly:<div class="pre"><pre><code class="no-highlight">&lt;VALUE&gt;</code></pre></div></li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('can-set-and-retrieve-config-values')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+            <div>
+              <div class="examples">
+                <h3>Examples: </h3>
+                <div class="table_container">
+                  <table class="datatable">
+                    <thead>
+                      <tr>
+                        <th>KEY</th>
+                        <th>VALUE</th>
+                        <th> </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>foo</td>
+                        <td>bar</td>
+                        <td />
+                      </tr>
+                      <tr>
+                        <td>foo</td>
+                        <td>barry</td>
+                        <td />
+                      </tr>
+                      <tr>
+                        <td>bar.foo</td>
+                        <td>42</td>
+                        <td />
+                      </tr>
+                      <tr>
+                        <td>bar.foo</td>
+                        <td>42 barry</td>
+                        <td />
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div id="footer">
+        <p>Test results generated for: Dab</p>
+        <p>Generated on: 16 January 2019 23:12:59</p>
+        <p>Produced by Pickles, version 2.20.1.0</p>
+      </div>
+    </div>
+  </body>
+</html>

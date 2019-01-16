@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"[]>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Docker entrypoint wrapper script works</title>
+    <link rel="stylesheet" href="css/master.css" type="text/css" />
+    <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/scripts.js" type="text/javascript"></script>
+    <script type="text/javascript">
+$(document).ready(function() {
+  initializeToc();
+});
+</script>
+    <!-- We are using Font Awesome - http://fortawesome.github.com/Font-Awesome - licensed under CC BY 3.0 -->
+  </head>
+  <body>
+    <div id="container">
+      <div id="top" />
+      <div id="toc">
+        <p class="tocCollapser" title="Collapse Table of Content">«</p>
+        <ul class="features">
+          <li class="file" id="root">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="file">
+            <a href="README.html">Cucumber Aruba Gherkin</a>
+          </li>
+          <li class="file">
+            <span class="current">Docker entrypoint wrapper script works</span>
+          </li>
+          <li class="file">
+            <a href="apps.html">Subcommand: dab apps</a>
+          </li>
+          <li class="file">
+            <a href="config.html">Subcommand: dab config</a>
+          </li>
+          <li class="file">
+            <a href="group.html">Subcommand: dab group</a>
+          </li>
+          <li class="file">
+            <a href="network.html">Subcommand: dab network</a>
+          </li>
+          <li class="file">
+            <a href="repo.html">Subcommand: dab repo</a>
+          </li>
+          <li class="file">
+            <a href="shell.html">Subcommand: dab shell</a>
+          </li>
+        </ul>
+      </div>
+      <div id="feature">
+        <h1>Docker entrypoint wrapper script works</h1>
+        <div class="description">
+          <p>The main dab entrypoint is actually a small posix complient shell script
+that wraps docker and starts a container using the dab image for you.</p>
+          <p>This script is designed to be lightweight and portable and should rarely be
+updated as the rest of the code for dab lives inside the image.</p>
+        </div>
+        <ul id="scenarios">
+          <li class="scenario">
+            <div class="scenario-heading" id="can-execute-dab-with-no-parameters-and-get-usage-info">
+              <h2>Can execute dab with no parameters and get usage info</h2>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">When </span>I run `dab`</li>
+                <li class="step">
+                  <span class="keyword">Then </span>it should fail with "Usage:"</li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('can-execute-dab-with-no-parameters-and-get-usage-info')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+          <li class="scenario">
+            <div class="scenario-heading" id="can-execute-dab-with--h-and-get-usage-info">
+              <h2>Can execute dab with -h and get usage info</h2>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">When </span>I run `dab -h`</li>
+                <li class="step">
+                  <span class="keyword">Then </span>it should pass with "Usage:"</li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('can-execute-dab-with--h-and-get-usage-info')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+          <li class="scenario">
+            <div class="scenario-heading" id="can-view-the-full-changelog">
+              <h2>Can view the full changelog</h2>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">When </span>I run `dab changelog`</li>
+                <li class="step">
+                  <span class="keyword">Then </span>it should pass with:<div class="pre"><pre><code class="no-highlight">* 13782eb|↓|Use tests tag for tests image to match docker hub tags &lt;Taylor Nekroze Lawson&gt;
+* 25276b8|↓|Improve docker caching &lt;Taylor Nekroze Lawson&gt;</code></pre></div></li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('can-view-the-full-changelog')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+          <li class="scenario">
+            <div class="scenario-heading" id="dab-tip-subcommand-displays-useful-tips">
+              <h2>Dab tip subcommand displays useful tips</h2>
+              <div class="description">
+                <p>With no custom tips defined</p>
+              </div>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">Given </span>I successfully run `dab config set tips/custom`</li>
+                <li class="step">
+                  <span class="keyword">When </span>I run `dab tip`</li>
+                <li class="step">
+                  <span class="keyword">Then </span>it should pass with "[tips:dab]"</li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('dab-tip-subcommand-displays-useful-tips')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+          <li class="scenario">
+            <div class="scenario-heading" id="displays-a-tip-periodically">
+              <h2>Displays a tip periodically</h2>
+              <div class="description">
+                <p>With no custom tips defined</p>
+              </div>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">Given </span>I successfully run `dab config set tips/custom`</li>
+                <li class="step">
+                  <span class="keyword">When </span>I run `dab config set tips/last`</li>
+                <li class="step">
+                  <span class="keyword">Then </span>it should pass with "[tips:dab]"</li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('displays-a-tip-periodically')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+          <li class="scenario">
+            <div class="scenario-heading" id="captain-hindsight-comes-to-the-rescue-when-commands-fail">
+              <h2>Captain Hindsight comes to the rescue when commands fail</h2>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">When </span>I run `dab shell false`</li>
+                <li class="step">
+                  <span class="keyword">Then </span>it should fail with:<div class="pre"><pre><code class="no-highlight">I'm sorry, it looks like the command 'dab shell false' failed.</code></pre></div></li>
+                <li class="step">
+                  <span class="keyword">And </span>the stderr should contain:<div class="pre"><pre><code class="no-highlight">If you believe this to due to a problem with Dab please file a bug report at https://github.com/Nekroze/dab/issues/new?template=bug_report.md</code></pre></div></li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('captain-hindsight-comes-to-the-rescue-when-commands-fail')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div id="footer">
+        <p>Test results generated for: Dab</p>
+        <p>Generated on: 16 January 2019 23:12:59</p>
+        <p>Produced by Pickles, version 2.20.1.0</p>
+      </div>
+    </div>
+  </body>
+</html>
