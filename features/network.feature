@@ -1,5 +1,5 @@
 # vim: ts=4 sw=4 sts=4 noet
-Feature: Subcommand: dab network
+Feature: Subcommand: network
 	The network subcommand provides management over the lab network.
 
 	Background:

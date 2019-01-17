@@ -1,5 +1,5 @@
 # vim: ts=4 sw=4 sts=4 noet
-Feature: Subcommand: dab apps
+Feature: Subcommand: apps
 	Provides easy access to common/powerful apps.
 
 	Background:

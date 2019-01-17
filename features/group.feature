@@ -1,5 +1,5 @@
 # vim: ts=4 sw=4 sts=4 noet
-Feature: Subcommand: dab group
+Feature: Subcommand: group
 	The group subcommand manages groups of groups and repostory entrypoints.
 
 	Background:
