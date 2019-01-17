@@ -13,7 +13,7 @@ teardown() {
 
 setup() {
 	if [ -z "${DAB_WRAPPER_PATH:-}" ]; then
-		if [ -r '../dab/dabr' ]; then
+		if [ -r '../dab/dab' ]; then
 			DAB_WRAPPER_PATH="$(readlink -f '../dab/dab')"
 		else
 			DAB_WRAPPER_PATH="$(mktemp)"
