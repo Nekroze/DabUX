@@ -7,14 +7,14 @@ experience. Features are used both as regressions tests, usage documentation,
 and a feed for events about the [Dab][1] CLI changing This test suite uses
 [Cucumber][4] [Aruba][5] for CLI testing.
 
-# Writing Feature Files
+## Writing Feature Files
 
 Aruba provides a corpus of predefined steps that should provide just about
 everything you could need to test any command line interface. For usage
 information check out the [documentation][2] or sometimes more useful is the
 [implementation][3].
 
-# Testing
+## Testing
 
 Features are tested against the latest version of Dab or a local version if one
 is specified or found in an expected location. Before merging changes tests are
@@ -24,7 +24,7 @@ executed in CI to public assert the tests are all passing.
 ./test.sh
 ```
 
-# Generating The Website
+## Generating The Website
 
 Feature files can be converted into a simple static HTML website able to be hosted on GitHub pages and the like. Any changes to feature files require a manual execution of the following script to update the website's static resources, CI will _not_ run this for you!
 
