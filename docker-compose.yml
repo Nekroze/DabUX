@@ -28,5 +28,6 @@ services:
       - '/tmp/dabux/:/tmp/dabux'
       - './features:/usr/src/app/features'
       - "$DAB_WRAPPER_PATH:/usr/bin/dab"
+      - '/tmp/dab/test_results:/output'
     tty: true
     stdin_open: true
