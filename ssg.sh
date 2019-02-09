@@ -20,3 +20,4 @@ docker-compose run --user "$(id -u):$(id -g)" pickles "$@"
 
 echo "
 now available at file:///$PWD/docs/index.html"
+xdg-open "file:///$PWD/docs/index.html" || true

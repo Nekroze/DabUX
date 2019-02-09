@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"[]>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>A Lab Of Your Own</title>
+    <link rel="stylesheet" href="css/master.css" type="text/css" />
+    <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/scripts.js" type="text/javascript"></script>
+    <script type="text/javascript">
+$(document).ready(function() {
+  initializeToc();
+});
+</script>
+    <!-- We are using Font Awesome - http://fortawesome.github.com/Font-Awesome - licensed under CC BY 3.0 -->
+  </head>
+  <body>
+    <div id="container">
+      <div id="top" />
+      <div id="toc">
+        <p class="tocCollapser" title="Collapse Table of Content">«</p>
+        <ul class="features">
+          <li class="file" id="root">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="file">
+            <span class="current">A Lab Of Your Own</span>
+          </li>
+          <li class="file">
+            <a href="misc.html">General Usage</a>
+          </li>
+          <li class="file">
+            <a href="apps.html">Subcommand: apps</a>
+          </li>
+          <li class="file">
+            <a href="config.html">Subcommand: config</a>
+          </li>
+          <li class="file">
+            <a href="group.html">Subcommand: group</a>
+          </li>
+          <li class="file">
+            <a href="network.html">Subcommand: network</a>
+          </li>
+          <li class="file">
+            <a href="repo.html">Subcommand: repo</a>
+          </li>
+          <li class="file">
+            <a href="shell.html">Subcommand: shell</a>
+          </li>
+        </ul>
+      </div>
+      <div id="feature">
+        <h1>A Lab Of Your Own</h1>
+        <div class="description">
+          <p>Dab provides tools to setup and even share a reproducable local development
+environment.</p>
+          <p>You can have Dab manage your git repositories and store common
+procedures as "entrypoints" that  execute within the reproducable Dab
+image. These entrypoints have access to a large corpus of Dockerized
+applications and services Dab provides and can be combined into groups to
+execute in sequence. This allows for complex development labs that behave
+the same across heterogenous host machines and even operating systems.</p>
+        </div>
+        <ul id="scenarios">
+          <li class="scenario">
+            <div class="scenario-heading" id="every-command-and-subcommand-provides-usagehelp-information">
+              <h2>Every command and subcommand provides usage/help information</h2>
+              <div class="description">
+                <p>You can give the usual help switches like <code>-h</code> and <code>--help</code> however
+these are the only switches in the whole Dab cli, instead dab uses
+explicit subcommands so <code>help</code> also works. It makes for less variations
+to memorize and easier usage when combined with shell completion.</p>
+                <p>If given to a "subcommand namespace" (a command that does nothing but
+have other commands under it) such as <code>dab</code> you will be given a list of
+subcommands, their aliases, and a short description of what they do.</p>
+              </div>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">When </span>I run `dab help`</li>
+                <li class="step">
+                  <span class="keyword">Then </span>the output should contain "Usage:"</li>
+                <li class="step">
+                  <span class="keyword">And </span>the output should contain "SUBCOMMAND"</li>
+                <li class="step">
+                  <span class="keyword">And </span>the output should contain "ALIASES"</li>
+                <li class="step">
+                  <span class="keyword">And </span>the output should contain "DESCRIPTION"</li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('every-command-and-subcommand-provides-usagehelp-information')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+          <li class="scenario">
+            <div class="scenario-heading" id="everything-is-executed-within-the-ephemeral-docker-container">
+              <h2>Everything is executed within the ephemeral docker container</h2>
+              <div class="description">
+                <p>In order to ensure a reproducable environment across all kinds of host
+machines (eg, Linux and OSX) everything gets executed within an
+ephemeral docker container, the Dab image.</p>
+                <p>Within this image is the application code for Dab itself plus various
+tools useful for orchestrating projects and procedures.</p>
+                <p>You can explore what is available in this image by entering into an
+interactive shell running within or give it one off commands to run.</p>
+              </div>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">When </span>I run `dab shell &lt;command&gt; --help`</li>
+                <li class="step">
+                  <span class="keyword">Then </span>the exit status should be 0</li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('everything-is-executed-within-the-ephemeral-docker-container')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+            <div>
+              <div class="examples">
+                <h3>Examples: </h3>
+                <div class="table_container">
+                  <table class="datatable">
+                    <thead>
+                      <tr>
+                        <th>command</th>
+                        <th> </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>docker</td>
+                        <td />
+                      </tr>
+                      <tr>
+                        <td>docker-compose</td>
+                        <td />
+                      </tr>
+                      <tr>
+                        <td>entr</td>
+                        <td />
+                      </tr>
+                      <tr>
+                        <td>jq</td>
+                        <td />
+                      </tr>
+                      <tr>
+                        <td>multitail</td>
+                        <td />
+                      </tr>
+                      <tr>
+                        <td>yq</td>
+                        <td />
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div id="footer">
+        <p>Test results generated for: Dab</p>
+        <p>Generated on: 9 February 2019 23:47:30</p>
+        <p>Produced by Pickles, version 2.20.1.0</p>
+      </div>
+    </div>
+  </body>
+</html>
