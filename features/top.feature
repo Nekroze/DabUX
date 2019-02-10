@@ -50,4 +50,3 @@ Feature: A Lab Of Your Own
 			| jq             |
 			| multitail      |
 			| yq             |
-			| psql           |
