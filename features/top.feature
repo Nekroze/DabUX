@@ -40,7 +40,7 @@ Feature: A Lab Of Your Own
 
 		When I run `dab shell which <COMMAND>`
 
-		Then the exit status should be 0
+		Then it should pass with "<COMMAND>"
 
 		Examples:
 			| COMMAND        |
@@ -51,3 +51,12 @@ Feature: A Lab Of Your Own
 			| multitail      |
 			| yq             |
 			| psql           |
+
+	Scenario: Dab has a large corpus of apps
+		Some commands need to continue beyond the life of the ephemeral container or are too large to have preinstalled in the image.
+
+		The apps subcommand provides control over a collection of developer ready apps and services. Need a database for your serverless app, dab can easily provide you a mysql instance, need to use the go compiler, and more are all made available as docker containers.
+
+		When I run `dab apps list`
+
+		Then it should pass with "APP"
